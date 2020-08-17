@@ -66,3 +66,69 @@ Relative commits are powerful, but we will introduce two simple ones here:
 
 Moving upwards one commit at a time with `^`
 Moving upwards a number of times with `~<num>`
+
+## The "~" operator
+
+Say you want to move a lot of levels up in the commit tree. It might be tedious to type ^ several times, so Git also has the tilde (~) operator.
+
+The tilde operator (optionally) takes in a trailing number that specifies the number of parents you would like to ascend. Let's see it in action.
+# Branch forcing
+You're an expert on relative refs now, so let's actually use them for something.
+
+One of the most common ways I use relative refs is to move branches around. You can directly reassign a branch to a commit with the `-f` option. So something like:
+
+> git branch -f master HEAD~3
+
+moves (by force) the master branch to three parents behind HEAD.
+
+# Reversing Changes in Git
+
+There are many ways to reverse changes in Git. And just like committing, reversing changes in Git has both a low-level component (staging individual files or chunks) and a high-level component (how the changes are actually reversed). Our application will focus on the latter.
+
+There are two primary ways to undo changes in Git -- one is using `git reset` and the other is using `git revert`.
+
+`git reset` reverts changes by moving a branch reference backwards in time to an older commit. In this sense you can think of it as "rewriting history;" git reset will move a branch backwards as if the commit had never been made in the first place.
+` git reset HEAD~1`
+Imagine. Git moved the master branch reference back to C1; now our local repository is in a state as if C2 had never happened.
+
+While resetting works great for local branches on your own machine, its method of "rewriting history" doesn't work for remote branches that others are using.
+
+In order to reverse changes and share those reversed changes with others, we need to use `git revert`.
+# Moving Work Around
+So far we've covered the basics of git -- committing, branching, and moving around in the source tree. Just these concepts are enough to leverage 90% of the power of git repositories and cover the main needs of developers.
+
+That remaining 10%, however, can be quite useful during complex workflows (or when you've gotten yourself into a bind). The next concept we're going to cover is "moving work around" -- in other words, it's a way for developers to say "I want this work here and that work there" in precise, eloquent, flexible ways.
+
+This may seem like a lot, but it's a simple concept.
+## Git Cherry-pick
+The first command in this series is called `git cherry-pick`. It takes on the following form:
+
+`git cherry-pick <Commit1> <Commit2> <...>`
+It's a very straightforward way of saying that you would like to copy a series of commits below your current location (HEAD). I personally love cherry-pick because there is very little magic involved and it's easy to understand.
+
+
+## Git Interactive Rebase
+
+Git cherry-pick is great when you know which commits you want (and you know their corresponding hashes) -- it's hard to beat the simplicity it provides.
+
+But what about the situation where you don't know what commits you want? Thankfully git has you covered there as well! We can use interactive rebasing for this -- it's the best way to review a series of commits you're about to rebase.
+
+All interactive rebase means is using the `rebase` command with the `-i` option.
+
+If you include this option, git will open up a UI to show you which commits are about to be copied below the target of the rebase. It also shows their commit hashes and messages, which is great for getting a bearing on what's what.
+
+For "real" git, the UI window means opening up a file in a text editor like `vim`.
+
+When the interactive rebase dialog opens, you have the ability to do two things in our educational application:
+
+> You can reorder commits simply by changing their order in the UI (in our window this means dragging and dropping with the mouse).
+> You can choose to completely omit some commits. This is designated by `pick` -- toggling pick off means you want to drop the commit.
+
+It is worth mentioning that in the real git interactive rebase you can do many more things like squashing (combining) commits, amending commit messages, and even editing the commits themselves. For our purposes though we will focus on these two operations above.It is worth mentioning that in the real git interactive rebase you can do many more things like squashing (combining) commits, amending commit messages, and even editing the commits themselves. For our purposes though we will focus on these two operations above.
+
+`git rebase -i HEAD~4`
+
+
+
+
+
