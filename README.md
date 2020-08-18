@@ -11,7 +11,7 @@ It's a lot to take in, but for now you can think of commits as snapshots of the 
 git commit
 git commit
 ```
-| <img src="images/001.png" width="500">|<img src="images/030.png" width="500"> |
+| <img src="images/001.png" width="500">|<img src="images/30.png" width="500"> |
 | :---: | :---: |
 | **BEFORE** | **AFTER** |
 
