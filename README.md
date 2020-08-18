@@ -48,8 +48,12 @@ The first method to combine work that we will examine is git merge. Merging in G
 - Commit another time
 - Merge the branch `bugFix` into `master` with `git merge`
 ```
-git branch bugFix
-git checkout bugFix
+git checkout -b bugFix
+git commit
+git checkout master
+git commit
+git merge bugFix
+
 ```
 | <img src="images/030.png" width="500">|<img src="images/3.png" width="500"> |
 | :---: | :---: |
@@ -62,10 +66,15 @@ The second way of combining work between branches is rebasing. Rebasing essentia
 While this sounds confusing, the advantage of rebasing is that it can be used to make a nice linear sequence of commits. The commit log / history of the repository will be a lot cleaner if only rebasing is allowed.
 
 ```
-git branch bugFix
+git checkout -b bugFix
+git commit
+git checkout master
+git commit
 git checkout bugFix
+git rebase master
+
 ```
-| <img src="images/040.png" width="500">|<img src="images/4.png" width="500"> |
+| <img src="images/020.png" width="500">|<img src="images/4.png" width="500"> |
 | :---: | :---: |
 | **BEFORE** | **AFTER** |
 # Brancches & Merging
@@ -78,8 +87,8 @@ HEAD always points to the most recent commit which is reflected in the working t
 
 Normally HEAD points to a branch name (like bugFix). When you commit, the status of bugFix is altered and this change is visible through HEAD.
 ```
-git branch bugFix
-git checkout bugFix
+git checkout C4
+
 ```
 | <img src="images/050.png" width="500">|<img src="images/5.png" width="500"> |
 | :---: | :---: |
@@ -92,6 +101,7 @@ Moving around in Git by specifying commit hashes can get a bit tedious. In the r
 Furthermore, hashes are usually a lot longer in the real Git world as well. For instance, the hash of the commit that introduced the previous level is `fed2da64c0efc5293610bdd892f82a58e8cbc5d8`. Doesn't exactly roll off the tongue...
 
 The upside is that Git is smart about hashes. It only requires you to specify enough characters of the hash until it uniquely identifies the commit. So I can type `fed2` instead of the long string above.
+## The "^" operator
 
 Like I said, specifying commits by their hash isn't the most convenient thing ever, which is why Git has relative refs. They are awesome!
 
@@ -103,8 +113,7 @@ Moving upwards one commit at a time with `^`
 Moving upwards a number of times with `~<num>`
 
 ```
-git branch bugFix
-git checkout bugFix
+git checkout bugFix^
 ```
 | <img src="images/060.png" width="500">|<img src="images/6.png" width="500"> |
 | :---: | :---: |
@@ -272,4 +281,36 @@ git checkout bugFix
 | <img src="images/016.png" width="500">|<img src="images/14.png" width="500"> |
 | :---: | :---: |
 | **BEFORE** | **AFTER** |
+
+
+# Git Tags
+
+As you have learned from previous lessons, branches are easy to move around and often refer to different commits as work is completed on them. Branches are easily mutated, often temporary, and always changing.
+
+If that's the case, you may be wondering if there's a way to permanently mark historical points in your project's history. For things like major releases and big merges, is there any way to mark these commits with something more permanent than a branch?
+
+You bet there is! Git tags support this exact use case -- they (somewhat) permanently mark certain commits as "milestones" that you can then reference like a branch.
+
+More importantly though, they never move as more commits are created. You can't "check out" a tag and then complete work on that tag -- tags exist as anchors in the commit tree that designate certain spots.
+
+Let's see what tags look like in practice.
+
+# Git Describe
+
+Because tags serve as such great "anchors" in the codebase, git has a command to describe where you are relative to the closest "anchor" (aka tag). And that command is called `git describe`!
+
+Git describe can help you get your bearings after you've moved many commits backwards or forwards in history; this can happen after you've completed a git bisect (a debugging search) or when sitting down at a coworkers computer who just got back from vacation.
+
+Git describe takes the form of:
+
+`git describe <ref>`
+
+Where `<ref>` is anything git can resolve into a commit. If you don't specify a ref, git just uses where you're checked out right now (`HEAD`).
+
+The output of the command looks like:
+
+`<tag>_<numCommits>_g<hash>`
+
+Where `tag` is the closest ancestor tag in history,` numCommits `is how many commits away that tag is, and `<hash>` is the hash of the commit being described.
+
 
