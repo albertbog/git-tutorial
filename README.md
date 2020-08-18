@@ -7,6 +7,12 @@ Git wants to keep commits as lightweight as possible though, so it doesn't just 
 Git also maintains a history of which commits were made when. That's why most commits have ancestor commits above them -- we designate this with arrows in our visualization. Maintaining history is great for everyone working on the project!
 
 It's a lot to take in, but for now you can think of commits as snapshots of the project. Commits are very lightweight and switching between them is wicked fast!
+```
+git commit;git commit;git commit;git commit
+```
+| <img src="images/016.png" width="500">|<img src="images/1.png" width="500"> |
+| :---: | :---: |
+| **BEFORE** | **AFTER** |
 
 # Git Branches
 
@@ -25,7 +31,9 @@ By the way, here's a shortcut: if you want to create a new branch AND check it o
 git branch bugFix
 git checkout bugFix
 ```
-
+| <img src="images/016.png" width="500">|<img src="images/1.png" width="500"> |
+| :---: | :---: |
+| **BEFORE** | **AFTER** |
 # Brancches & Merging
 
 Branches and Merging
@@ -39,12 +47,28 @@ The first method to combine work that we will examine is git merge. Merging in G
 - Go back to `master` with `git checkout`
 - Commit another time
 - Merge the branch `bugFix` into `master` with `git merge`
+```
+git branch bugFix
+git checkout bugFix
+```
+| <img src="images/016.png" width="500">|<img src="images/1.png" width="500"> |
+| :---: | :---: |
+| **BEFORE** | **AFTER** |
 
 # Rebase
 
 The second way of combining work between branches is rebasing. Rebasing essentially takes a set of commits, "copies" them, and plops them down somewhere else.
 
 While this sounds confusing, the advantage of rebasing is that it can be used to make a nice linear sequence of commits. The commit log / history of the repository will be a lot cleaner if only rebasing is allowed.
+
+```
+git branch bugFix
+git checkout bugFix
+```
+| <img src="images/016.png" width="500">|<img src="images/1.png" width="500"> |
+| :---: | :---: |
+| **BEFORE** | **AFTER** |
+# Brancches & Merging
 
 # Head
 
@@ -53,6 +77,13 @@ First we have to talk about "HEAD". HEAD is the symbolic name for the currently 
 HEAD always points to the most recent commit which is reflected in the working tree. Most git commands which make changes to the working tree will start by changing HEAD.
 
 Normally HEAD points to a branch name (like bugFix). When you commit, the status of bugFix is altered and this change is visible through HEAD.
+```
+git branch bugFix
+git checkout bugFix
+```
+| <img src="images/016.png" width="500">|<img src="images/1.png" width="500"> |
+| :---: | :---: |
+| **BEFORE** | **AFTER** |
 
 # Relative Refs
 
@@ -71,11 +102,28 @@ Relative commits are powerful, but we will introduce two simple ones here:
 Moving upwards one commit at a time with `^`
 Moving upwards a number of times with `~<num>`
 
+```
+git branch bugFix
+git checkout bugFix
+```
+| <img src="images/016.png" width="500">|<img src="images/1.png" width="500"> |
+| :---: | :---: |
+| **BEFORE** | **AFTER** |
+
 ## The "~" operator
 
 Say you want to move a lot of levels up in the commit tree. It might be tedious to type ^ several times, so Git also has the tilde (~) operator.
 
 The tilde operator (optionally) takes in a trailing number that specifies the number of parents you would like to ascend. Let's see it in action.
+
+```
+git branch bugFix
+git checkout bugFix
+```
+| <img src="images/016.png" width="500">|<img src="images/1.png" width="500"> |
+| :---: | :---: |
+| **BEFORE** | **AFTER** |
+
 # Branch forcing
 You're an expert on relative refs now, so let's actually use them for something.
 
@@ -84,6 +132,14 @@ One of the most common ways I use relative refs is to move branches around. You 
 > git branch -f master HEAD~3
 
 moves (by force) the master branch to three parents behind HEAD.
+
+```
+git branch bugFix
+git checkout bugFix
+```
+| <img src="images/016.png" width="500">|<img src="images/1.png" width="500"> |
+| :---: | :---: |
+| **BEFORE** | **AFTER** |
 
 # Reversing Changes in Git
 
@@ -98,17 +154,45 @@ Imagine. Git moved the master branch reference back to C1; now our local reposit
 While resetting works great for local branches on your own machine, its method of "rewriting history" doesn't work for remote branches that others are using.
 
 In order to reverse changes and share those reversed changes with others, we need to use `git revert`.
+
+```
+git branch bugFix
+git checkout bugFix
+```
+| <img src="images/016.png" width="500">|<img src="images/1.png" width="500"> |
+| :---: | :---: |
+| **BEFORE** | **AFTER** |
+
 # Moving Work Around
 So far we've covered the basics of git -- committing, branching, and moving around in the source tree. Just these concepts are enough to leverage 90% of the power of git repositories and cover the main needs of developers.
 
 That remaining 10%, however, can be quite useful during complex workflows (or when you've gotten yourself into a bind). The next concept we're going to cover is "moving work around" -- in other words, it's a way for developers to say "I want this work here and that work there" in precise, eloquent, flexible ways.
 
 This may seem like a lot, but it's a simple concept.
+
+```
+git branch bugFix
+git checkout bugFix
+```
+| <img src="images/016.png" width="500">|<img src="images/1.png" width="500"> |
+| :---: | :---: |
+| **BEFORE** | **AFTER** |
+
+
 ## Git Cherry-pick
 The first command in this series is called `git cherry-pick`. It takes on the following form:
 
 `git cherry-pick <Commit1> <Commit2> <...>`
 It's a very straightforward way of saying that you would like to copy a series of commits below your current location (HEAD). I personally love cherry-pick because there is very little magic involved and it's easy to understand.
+
+
+```
+git branch bugFix
+git checkout bugFix
+```
+| <img src="images/016.png" width="500">|<img src="images/1.png" width="500"> |
+| :---: | :---: |
+| **BEFORE** | **AFTER** |
 
 
 ## Git Interactive Rebase
@@ -132,6 +216,16 @@ It is worth mentioning that in the real git interactive rebase you can do many m
 
 `git rebase -i HEAD~4`
 
+
+```
+git branch bugFix
+git checkout bugFix
+```
+| <img src="images/016.png" width="500">|<img src="images/1.png" width="500"> |
+| :---: | :---: |
+| **BEFORE** | **AFTER** |
+
+
 # Locally stacked commits
 Here's a development situation that often happens: I'm trying to track down a bug but it is quite elusive. In order to aid in my detective work, I put in a few debug commands and a few print statements.
 
@@ -144,6 +238,16 @@ We need to tell git to copy only one of the commits over. This is just like the 
 `git cherry-pick`
 
 To achieve this goal.
+
+
+```
+git branch bugFix
+git checkout bugFix
+```
+| <img src="images/016.png" width="500">|<img src="images/1.png" width="500"> |
+| :---: | :---: |
+| **BEFORE** | **AFTER** |
+
 
 # Juggling Commits
 Here's another situation that happens quite commonly. You have some changes (newImage) and another set of changes (caption) that are related, so they are stacked on top of each other in your repository (aka one after another).
@@ -159,3 +263,13 @@ Finally, we will move master to this updated part of the tree to finish the leve
 There are many ways to accomplish this overall goal (I see you eye-ing `cherry-pick`), and we will see more of them later, but for now let's focus on this technique. Lastly, pay attention to the goal state here -- since we move the commits twice, they both get an apostrophe appended. One more apostrophe is added for the commit we amend, which gives us the final form of the tree
 
 That being said, I can compare levels now based on structure and relative apostrophe differences. As long as your tree's master branch has the same structure and relative apostrophe differences, I'll give full credit.
+
+
+```
+git branch bugFix
+git checkout bugFix
+```
+| <img src="images/016.png" width="500">|<img src="images/1.png" width="500"> |
+| :---: | :---: |
+| **BEFORE** | **AFTER** |
+
