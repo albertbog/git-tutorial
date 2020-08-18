@@ -1,3 +1,6 @@
+
+https://try.github.io/
+
 # Git commits
 
 A ` commit ` in a git repository records a snapshot of all the files in your directory. It's like a giant copy and paste, but even better!
@@ -78,7 +81,7 @@ git rebase master
 | <img src="images/006.png" width="500">|<img src="images/007.png" width="500"> |
 | :---: | :---: |
 | **BEFORE** | **AFTER** |
-# Brancches & Merging
+# Branches & Merging
 
 # Head
 
