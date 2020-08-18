@@ -11,7 +11,7 @@ It's a lot to take in, but for now you can think of commits as snapshots of the 
 git commit
 git commit
 ```
-| <img src="images/001.png" width="500">|<img src="images/30.png" width="500"> |
+| <img src="images/001.png" width="500">|<img src="images/30.png" width="500" height="500"> |
 | :---: | :---: |
 | **BEFORE** | **AFTER** |
 
@@ -220,7 +220,7 @@ It is worth mentioning that in the real git interactive rebase you can do many m
 ```
 git rebase -i overHere (--solution-ordering C3,C5,C4)
 ```
-| <img src="images/018.png" width="500">|<img src="images/019.png" width="500"> |
+| <img src="images/018.png" width="500" height="600">|<img src="images/019.png" width="500"> |
 | :---: | :---: |
 | **BEFORE** | **AFTER** |
 
@@ -243,7 +243,7 @@ To achieve this goal.
 git rebase -i master (--solution-ordering C4)
 git rebase bugFix master
 ```
-| <img src="images/020.png" width="500">|<img src="images/021.png" width="500"> |
+| <img src="images/020.png" width="500" height="600">|<img src="images/021.png" width="500"> |
 | :---: | :---: |
 | **BEFORE** | **AFTER** |
 
