@@ -35,7 +35,7 @@ git checkout bugFix
 | <img src="images/002.png" width="500">|<img src="images/003.png" width="500"> |
 | :---: | :---: |
 | **BEFORE** | **AFTER** |
-# Brancches & Merging
+# Branches & Merging
 
 Branches and Merging
 Great! We now know how to commit and branch. Now we need to learn some kind of way of combining the work from two different branches together. This will allow us to branch off, develop a new feature, and then combine it back in.
