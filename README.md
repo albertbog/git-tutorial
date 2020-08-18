@@ -31,7 +31,7 @@ By the way, here's a shortcut: if you want to create a new branch AND check it o
 git branch bugFix
 git checkout bugFix
 ```
-| <img src="images/016.png" width="500">|<img src="images/1.png" width="500"> |
+| <img src="images/020.png" width="500">|<img src="images/2.png" width="500"> |
 | :---: | :---: |
 | **BEFORE** | **AFTER** |
 # Brancches & Merging
@@ -51,7 +51,7 @@ The first method to combine work that we will examine is git merge. Merging in G
 git branch bugFix
 git checkout bugFix
 ```
-| <img src="images/016.png" width="500">|<img src="images/1.png" width="500"> |
+| <img src="images/030.png" width="500">|<img src="images/3.png" width="500"> |
 | :---: | :---: |
 | **BEFORE** | **AFTER** |
 
@@ -65,7 +65,7 @@ While this sounds confusing, the advantage of rebasing is that it can be used to
 git branch bugFix
 git checkout bugFix
 ```
-| <img src="images/016.png" width="500">|<img src="images/1.png" width="500"> |
+| <img src="images/040.png" width="500">|<img src="images/4.png" width="500"> |
 | :---: | :---: |
 | **BEFORE** | **AFTER** |
 # Brancches & Merging
@@ -81,7 +81,7 @@ Normally HEAD points to a branch name (like bugFix). When you commit, the status
 git branch bugFix
 git checkout bugFix
 ```
-| <img src="images/016.png" width="500">|<img src="images/1.png" width="500"> |
+| <img src="images/050.png" width="500">|<img src="images/5.png" width="500"> |
 | :---: | :---: |
 | **BEFORE** | **AFTER** |
 
@@ -106,7 +106,7 @@ Moving upwards a number of times with `~<num>`
 git branch bugFix
 git checkout bugFix
 ```
-| <img src="images/016.png" width="500">|<img src="images/1.png" width="500"> |
+| <img src="images/060.png" width="500">|<img src="images/6.png" width="500"> |
 | :---: | :---: |
 | **BEFORE** | **AFTER** |
 
@@ -120,7 +120,7 @@ The tilde operator (optionally) takes in a trailing number that specifies the nu
 git branch bugFix
 git checkout bugFix
 ```
-| <img src="images/016.png" width="500">|<img src="images/1.png" width="500"> |
+| <img src="images/070.png" width="500">|<img src="images/7.png" width="500"> |
 | :---: | :---: |
 | **BEFORE** | **AFTER** |
 
@@ -137,7 +137,7 @@ moves (by force) the master branch to three parents behind HEAD.
 git branch bugFix
 git checkout bugFix
 ```
-| <img src="images/016.png" width="500">|<img src="images/1.png" width="500"> |
+| <img src="images/080.png" width="500">|<img src="images/8.png" width="500"> |
 | :---: | :---: |
 | **BEFORE** | **AFTER** |
 
@@ -159,7 +159,7 @@ In order to reverse changes and share those reversed changes with others, we nee
 git branch bugFix
 git checkout bugFix
 ```
-| <img src="images/016.png" width="500">|<img src="images/1.png" width="500"> |
+| <img src="images/090.png" width="500">|<img src="images/9.png" width="500"> |
 | :---: | :---: |
 | **BEFORE** | **AFTER** |
 
@@ -174,7 +174,7 @@ This may seem like a lot, but it's a simple concept.
 git branch bugFix
 git checkout bugFix
 ```
-| <img src="images/016.png" width="500">|<img src="images/1.png" width="500"> |
+| <img src="images/0100.png" width="500">|<img src="images/10.png" width="500"> |
 | :---: | :---: |
 | **BEFORE** | **AFTER** |
 
@@ -190,7 +190,7 @@ It's a very straightforward way of saying that you would like to copy a series o
 git branch bugFix
 git checkout bugFix
 ```
-| <img src="images/016.png" width="500">|<img src="images/1.png" width="500"> |
+| <img src="images/0110.png" width="500">|<img src="images/11.png" width="500"> |
 | :---: | :---: |
 | **BEFORE** | **AFTER** |
 
@@ -221,7 +221,7 @@ It is worth mentioning that in the real git interactive rebase you can do many m
 git branch bugFix
 git checkout bugFix
 ```
-| <img src="images/016.png" width="500">|<img src="images/1.png" width="500"> |
+| <img src="images/0120.png" width="500">|<img src="images/12.png" width="500"> |
 | :---: | :---: |
 | **BEFORE** | **AFTER** |
 
@@ -244,7 +244,7 @@ To achieve this goal.
 git branch bugFix
 git checkout bugFix
 ```
-| <img src="images/016.png" width="500">|<img src="images/1.png" width="500"> |
+| <img src="images/0130.png" width="500">|<img src="images/13.png" width="500"> |
 | :---: | :---: |
 | **BEFORE** | **AFTER** |
 
@@ -269,7 +269,7 @@ That being said, I can compare levels now based on structure and relative apostr
 git branch bugFix
 git checkout bugFix
 ```
-| <img src="images/016.png" width="500">|<img src="images/1.png" width="500"> |
+| <img src="images/016.png" width="500">|<img src="images/14.png" width="500"> |
 | :---: | :---: |
 | **BEFORE** | **AFTER** |
 
