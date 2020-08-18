@@ -21,6 +21,10 @@ When we start mixing branches and commits, we will see how these two features co
 Ok! You are all ready to get branching. Once this window closes, make a new branch named 'bugFix' and switch to that branch.
 
 By the way, here's a shortcut: if you want to create a new branch AND check it out at the same time, you can simply type `git checkout -b [yourbranchname]`.
+```
+git branch bugFix
+git checkout bugFix
+```
 
 # Brancches & Merging
 
